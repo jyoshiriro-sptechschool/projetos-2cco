@@ -41,6 +41,3 @@ jobs:
           ARGS: "-rltgoDzvO --delete" 
           # SOURCE: O que será copiado. Pode ser o diretório de build (ex: ./dist)
           SOURCE: "./dist/" 
-            # cd ${{ secrets.TARGET_DIR }}
-            # pm2 restart meu-app
-            echo "Deploy concluído. Reiniciei o serviço se necessário."
