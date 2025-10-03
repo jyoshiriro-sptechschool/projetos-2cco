@@ -40,7 +40,7 @@ jobs:
           # ARGS para rsync: -rltgoDzvO para cópia recursiva, compressão e outros
           ARGS: "-rltgoDzvO --delete" 
           # SOURCE: O que será copiado. Pode ser o diretório de build (ex: ./dist)
-          SOURCE: "./dist" 
+          SOURCE: "./dist/" 
 
       # 5. Reiniciar o serviço no EC2 (Comando remoto)
       # Esta etapa é crucial para garantir que a nova versão do código comece a rodar
