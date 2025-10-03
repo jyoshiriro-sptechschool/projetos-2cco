@@ -52,10 +52,12 @@ jobs:
       # 6. Execução dos testes automatizados do projeto
       - name: BE - Executar Testes automatizados
         run: mvn test     
+        working-directory: ./backend
 
       # 7. Geração do .jar
       - name: BE - Gerar Artefato .JAR
         run: mvn clean package -DskipTests=true # -DskipTests=true pq os testes foram executados no passo anterior
+        working-directory: ./backend
 
       # 7. Dando o mesmo nome sempre ao .jar
       - name: BE Renomear JAR para app_loko.jar # ou o nome que preferir parta o jar
@@ -70,6 +72,7 @@ jobs:
           mv $JAR_NAME target/app_loko.jar
           
           echo "Renomeado para: target/app_loko.jar"
+        working-directory: ./backend
 
       # 7. Deploy (Transferência de arquivos e execução de comandos remotos)
       - name: BE - Copiar arquivos e Deploy (Usando SSH com rsync)
@@ -83,6 +86,7 @@ jobs:
           ARGS: "-rltgoDzvO --delete" 
           # SOURCE: O que será copiado. Pode ser o diretório de build (ex: ./target)
           SOURCE: "./target/" 
+          
 
       # 8. Fazendo o envio do jar da ec2 pública para a privada
       - name: BE - Executar Comando Shell na EC2
