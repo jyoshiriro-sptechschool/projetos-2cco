@@ -29,7 +29,7 @@ jobs:
           npm install
           npm run build --if-present 
           # Se sua app não precisar de build, remova esta etapa
-        working-directory: /home/runner/work/projetos-2cco/
+        working-directory: /home/runner/workx/
 
       # 4. Deploy (Transferência de arquivos e execução de comandos remotos)
       - name: Copiar arquivos e Deploy (Usando SSH com rsync)
