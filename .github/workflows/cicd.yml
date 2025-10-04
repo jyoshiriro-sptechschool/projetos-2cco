@@ -104,9 +104,9 @@ jobs:
             ARQUIVO_PEM="/home/${{ secrets.REMOTE_USER }}/chavetmp.pem"
             echo "Arquivo pem que sera criado: $ARQUIVO_PEM"
             
-            echo "${{ secrets.EC2_SSH_KEY }}" > $ARQUIVO_PEM
+            echo "${{ secrets.EC2_SSH_KEY }}" > $ARQUIVO_PEM || true
             echo "Arquivo pem criado"
-            chmod 400 $ARQUIVO_PEM
+            chmod 400 $ARQUIVO_PEM || true
             echo "Permissões ao pem concedidas"
 
             # usuario e ip de destino:
