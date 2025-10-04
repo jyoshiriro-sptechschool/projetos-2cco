@@ -85,7 +85,7 @@ jobs:
           # ARGS para rsync: -rltgoDzvO para cópia recursiva, compressão e outros
           ARGS: "-rltgoDzvO --delete" 
           # SOURCE: O que será copiado. Pode ser o diretório de build (ex: ./target)
-          SOURCE: "./backend/target/" 
+          SOURCE: "./backend/target/*.jar" 
           
 
       # 8. Fazendo o envio do jar da ec2 pública para a privada
@@ -103,7 +103,7 @@ jobs:
             ARQUIVO_PEM="/home/${{ secrets.REMOTE_USER }}/chavetmp.pem"
             echo "Arquivo pem: $ARQUIVO_PEM"
             
-            echo ${{ secrets.EC2_SSH_KEY }} > $ARQUIVO_PEM
+            echo "${{ secrets.EC2_SSH_KEY }}" > $ARQUIVO_PEM
             chmod 400 $ARQUIVO_PEM
 
             # usuario e ip de destino:
