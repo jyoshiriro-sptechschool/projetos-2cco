@@ -1,4 +1,4 @@
-name: CI/CD para EC2 pública
+oname: CI/CD para EC2 pública
 
 on:
   push:
@@ -112,6 +112,8 @@ jobs:
             echo "usuario@ip condifigurado: $USUARIO_IP"
             
             # enviando o arquivo .jar via scp para o ec2 privado (essa instância precisa ter o diretório /usr/share/api/)
+            echo "Tentando enviar arquivo /home/${{ secrets.REMOTE_USER }}/backend/app_loko.jar"
+            ls /home/${{ secrets.REMOTE_USER }}/backend/app_loko.jar
             scp -i $ARQUIVO_PEM /home/${{ secrets.REMOTE_USER }}/backend/app_loko.jar $USUARIO_IP/usr/share/api/app_loko.jar
             echo "Arquivo jar enviado ao ec2 privado"
 
