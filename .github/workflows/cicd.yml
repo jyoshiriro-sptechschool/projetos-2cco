@@ -120,5 +120,5 @@ jobs:
             echo "Arquivo jar enviado ao ec2 privado"
 
             # reininciando o servico 'api' via docker compose
-            ssh $ARQUIVO_PEM $USUARIO_IP 'sudo docker compose restart api'            
+            ssh -i $ARQUIVO_PEM $USUARIO_IP 'sudo docker compose restart api'            
             echo "servico reiniciado via docker compose"
