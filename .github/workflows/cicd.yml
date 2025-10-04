@@ -51,12 +51,12 @@ jobs:
 
       # 6. Execução dos testes automatizados do projeto
       - name: BE - Executar Testes automatizados
-        run: mvn compile # comentei os tests por enquanto     
+        run: mvn clean test # comentei os tests por enquanto     
         working-directory: ./backend
 
       # 7. Geração do .jar
       - name: BE - Gerar Artefato .JAR
-        run: mvn clean package -DskipTests=true # -DskipTests=true pq os testes foram executados no passo anterior
+        run: mvn package -DskipTests=true # -DskipTests=true pq os testes foram executados no passo anterior
         working-directory: ./backend
 
       # 7. Dando o mesmo nome sempre ao .jar
