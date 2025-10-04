@@ -102,9 +102,10 @@ jobs:
             set -e
             # criando um .pem temporário, baseado no secret do github
             ARQUIVO_PEM="/home/${{ secrets.REMOTE_USER }}/chavetmp.pem"
-            echo "Arquivo pem criado: $ARQUIVO_PEM"
+            echo "Arquivo pem que sera criado: $ARQUIVO_PEM"
             
             echo "${{ secrets.EC2_SSH_KEY }}" > $ARQUIVO_PEM
+            echo "Arquivo pem criado"
             chmod 400 $ARQUIVO_PEM
             echo "Permissões ao pem concedidas"
 
