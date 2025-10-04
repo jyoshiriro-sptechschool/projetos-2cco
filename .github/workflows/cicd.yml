@@ -99,6 +99,7 @@ jobs:
           # O Comando ou Script a ser Executado no EC2
           # Use o pipe '|' para comandos de múltiplas linhas
           script: |
+            set -e
             # criando um .pem temporário, baseado no secret do github
             ARQUIVO_PEM="/home/${{ secrets.REMOTE_USER }}/chavetmp.pem"
             echo "Arquivo pem criado: $ARQUIVO_PEM"
