@@ -1,4 +1,4 @@
-name: CI/CD para EC2 pública
+name: CI/CD para EC2 pública e privada
 
 on:
   push:
