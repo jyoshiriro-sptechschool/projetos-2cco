@@ -103,6 +103,10 @@ jobs:
             # criando um .pem temporário, baseado no secret do github
             ARQUIVO_PEM="/home/${{ secrets.REMOTE_USER }}/chavetmp.pem"
             echo "Arquivo pem que sera criado: $ARQUIVO_PEM"
+
+            # excluindo o arquivo .pem, caso exista
+            rm $ARQUIVO_PEM -f
+            echo "Arquivo .pem excluído"
             
             echo "${{ secrets.EC2_SSH_KEY }}" > $ARQUIVO_PEM || true
             echo "Arquivo pem criado"
@@ -118,10 +122,6 @@ jobs:
             echo "Tentando enviar arquivo /home/${{ secrets.REMOTE_USER }}/backend/app_loko.jar"
             scp -o StrictHostKeyChecking=no -i $ARQUIVO_PEM /home/${{ secrets.REMOTE_USER }}/backend/app_loko.jar $USUARIO_IP:/usr/share/api/app_loko.jar
             echo "Arquivo jar enviado ao ec2 privado"
-
-            # excluindo o arquivo .pem
-            rm $ARQUIVO_PEM -f
-            echo "Arquivo .pem excluído"
 
             # reininciando o servico 'api' via docker compose
             ssh -i $ARQUIVO_PEM $USUARIO_IP 'sudo docker compose restart api'            
