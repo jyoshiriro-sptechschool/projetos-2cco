@@ -39,7 +39,7 @@ jobs:
           # ARGS para rsync: -rltgoDzvO para cópia recursiva, compressão e outros
           ARGS: "-rltgoDzvO --delete" 
           # SOURCE: O que será copiado. Pode ser o diretório de build (ex: ./dist)
-          SOURCE: "./dist/" 
+          SOURCE: "./frontend/dist/" 
 
       # 5. Configuração do ambiente Java/Maven
       - name: BE - Configurar JDK
