@@ -60,7 +60,7 @@ jobs:
         working-directory: ./backend
 
       # 7. Dando o mesmo nome sempre ao .jar
-      - name: BE Renomear JAR para app_loko.jar # ou o nome que preferir parta o jar
+      - name: BE - Renomear JAR para app_loko.jar # ou o nome que preferir parta o jar
         run: |
           # Encontra o primeiro (e único) arquivo .jar gerado na pasta 'target'
           # e o renomeia para o nome fixo.
